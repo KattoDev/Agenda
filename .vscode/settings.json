@@ -1,0 +1,11 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\alexi\\lab\\java\\Agenda\\lib\\gson-2.11.0.jar",
+        "c:\\Users\\alexi\\lab\\java\\Agenda\\lib\\absolutelayout\\AbsoluteLayout.jar",
+        "c:\\Users\\alexi\\lab\\java\\Agenda\\lib\\RSScaleLabel.jar",
+        "c:\\Users\\alexi\\lab\\java\\Agenda\\lib\\CopyLibs\\org-netbeans-modules-java-j2seproject-copylibstask.jar"
+    ]
+}
