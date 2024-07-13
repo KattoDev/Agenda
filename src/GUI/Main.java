@@ -1,17 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUI;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import Agenda.Contact;
+import Classes.Contact;
 
 /**
- *
  * @author Kris
  */
 public class Main extends javax.swing.JFrame {
@@ -54,7 +49,7 @@ public class Main extends javax.swing.JFrame {
         ContentContainer = new javax.swing.JPanel();
         btn_seeData = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_contacts = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agenda");
@@ -177,18 +172,30 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_contacts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
-
+                "Identificación", "Nombre", "Apellido", "Telefono", "Dirección"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(table_contacts);
 
         javax.swing.GroupLayout ContentContainerLayout = new javax.swing.GroupLayout(ContentContainer);
         ContentContainer.setLayout(ContentContainerLayout);
@@ -253,14 +260,20 @@ public class Main extends javax.swing.JFrame {
         }
 
         if(fieldCheckout==5){
-            Contact newContact = new Contact();
-            newContact.setId(id);
-            newContact.setName(name);
-            newContact.setSurname(surname);
-            newContact.setPhoneNumber(phoneNumber);
-            newContact.setAddress(address);
+
+            Contact newContact = new Contact(id, name, surname, phoneNumber, address);
             agendaDir.add(newContact);
+
+            txt_id.setText("");
+            txt_name.setText("");
+            txt_surname.setText("");
+            txt_phoneNumber.setText("");
+            txt_address.setText("");
+    
+            txt_id.requestFocusInWindow();
+            
             JOptionPane.showMessageDialog(this, "El contacto ha sido creado", "Información", JOptionPane.INFORMATION_MESSAGE);
+        
         }
         else{
             JOptionPane.showMessageDialog(this, "No pueden haber campos vacios en el formulario", "Atención", JOptionPane.ERROR_MESSAGE);
@@ -273,14 +286,15 @@ public class Main extends javax.swing.JFrame {
         txt_surname.setText("");
         txt_phoneNumber.setText("");
         txt_address.setText("");
+
         txt_id.requestFocusInWindow();
     }//GEN-LAST:event_btn_clearMouseClicked
 
     private void btn_seeDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_seeDataMouseClicked
         Object O[] = null;
         for (int i = 0; i < agendaDir.size(); i++) {
-            Contact contact = (Contact) agendaDir.get(i);
 
+            Contact contact = (Contact) agendaDir.get(i);
             model.addRow(O);
             model.setValueAt(contact.getId(), i, 0);
             model.setValueAt(contact.getName(), i, 1);
@@ -352,7 +366,7 @@ public class Main extends javax.swing.JFrame {
                             return canEdit[columnIndex];
                         }
                     });
-            jTable1.setModel(model);
+            table_contacts.setModel(model);
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(this, e, getTitle(), ABORT);
@@ -374,8 +388,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblimg_agenda;
+    private javax.swing.JTable table_contacts;
     private javax.swing.JTextField txt_address;
     private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_name;

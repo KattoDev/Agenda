@@ -1,0 +1,26 @@
+{
+    "contacts": 
+    [
+        {
+            "id": "id1",
+            "name": "nombre1",
+            "surname": "apellido1",
+            "phoneNumber": "numero1",
+            "address": "dir1"
+        },
+        {
+            "id": "id2",
+            "name": "nombre2",
+            "surname": "apellido2",
+            "phoneNumber": "numero2",
+            "address": "dir2"
+        },
+        {
+            "id": "id3",
+            "name": "name3",
+            "surname": "surname3",
+            "phoneNumber": "PN3",
+            "address": "adress3"
+        }
+    ]
+}
