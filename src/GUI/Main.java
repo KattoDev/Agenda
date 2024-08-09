@@ -16,8 +16,7 @@ import java.net.URL;
 public class Main extends javax.swing.JFrame {
 
 	ArrayList agendaDir = new ArrayList();
-                  String rootDir = System.getProperty("user.dir");
-                  String agendaIcon = rootDir + "/Agenda.jar/Assets/Images/agenda.png";
+                  String agendaIcon = "src/Assets/Images/agenda.png";
 
 	/**
 	 * Creates new form Main
@@ -25,15 +24,7 @@ public class Main extends javax.swing.JFrame {
 	public Main() {
 		initComponents();
 		CreateModel();
-                    URL imageURL = Main.class.getResource("/Assets/Images/agenda.png");
-                                if (imageURL != null) {
-                                    // Convertir el URL a una cadena que `RSScaleLabel` puede entender.
-                                    String imagePath = imageURL.toString();
-                                    System.out.println(imagePath);
-                                    rsscalelabel.RSScaleLabel.setScaleLabel(lblimg_agenda, imagePath);
-                                } else {
-                                    System.err.println("No se pudo encontrar la imagen: /Assets/Images/agenda.png");
-                                }
+                                    rsscalelabel.RSScaleLabel.setScaleLabel(lblimg_agenda, agendaIcon);
                             }
 
 	/**
