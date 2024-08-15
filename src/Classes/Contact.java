@@ -4,14 +4,13 @@ package Classes;
  * @author Kris
  */
 public class Contact {
-    String id;
+    int id;
     String name;
     String surname;
-    String phoneNumber;
+    int phoneNumber;
     String address;
 
-    
-    public Contact(String id, String name, String surname, String phoneNumber, String address) {
+    public Contact(int id, String name, String surname, int phoneNumber, String address) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -19,11 +18,11 @@ public class Contact {
         this.address = address;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -43,11 +42,11 @@ public class Contact {
         this.surname = surname;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
