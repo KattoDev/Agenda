@@ -3,12 +3,10 @@ package GUI;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.attribute.standard.JobHoldUntil;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import Classes.*;
-import java.net.URL;
 
 /**
  * @author Kris
